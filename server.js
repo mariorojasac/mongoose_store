@@ -2,7 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 // Initialize Express App
 const app = express()
 
@@ -15,8 +15,12 @@ const DATABASE_URL = process.env.DATABASE_URL
 // Connect to MongoDB
 mongoose.connect(DATABASE_URL)
 const db = mongoose.connection
+
+db.on("connected", () => console.log("Connected to MongoDB"));
+db.on("error", (error) => console.log("MongoDB Error " + error.message));
 // Mount Middleware
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static("public"));
 
 
 //seed route
@@ -27,8 +31,8 @@ app.use(express.urlencoded({ extended: false }))
 // Mount Routes
 // Routes / Controllers
 // Index
-app.get('/', (req, res) => {
-
+app.get('/products', (req, res) => {
+res.send('hey')
 })
 
 // New
