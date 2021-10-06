@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <title>Edit <%= product.title %></title>
+</head>
+<body>
+    <h1>Edit <%= product.title %></h1>
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+        <!-- Image: <input type="text" name="imageURL"> -->
+        name: <input type="text" name="title" value="<%= product.name %>" required><br>
+        description: <input type="text" name="author" value="<%= product.description %>" required><br>
+        img <input type="checkbox" name="completed" <%- product.img && 'checked' %>><br>
+        qty: <textarea name="excerpt" cols="30" rows="10"><%= product.qty %></textarea>
+        <input type="submit" value="Edit Product">
+    </form>
+</body>
+</html>
+
