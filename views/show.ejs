@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <title>See <%= product.name %> Details</title>
 </head>
+
 <body>
-    <h1>See <%= product.name %> Details</h1>
-    <nav>
-        <a href="/products">See All Books</a>
-        <a href="/products/new">Create A New Book</a>
-    </nav>
-    <h3>Author: <%= product.description %></h3>
-    <% if(product.img) { %>
-        <p>You have finished this book</p>
-    <% } else { %>
-        <p>You have not finished this book</p>
-    <% } %>
-    <p><%= product.price %></p>
+    <div class="container">
+        <div class="row">
+            <h1><%= product.name %> Details</h1>
+
+        </div>
+        <div class="row">
+            <nav>
+                <a class="button" href="/products">See All Books</a>
+                <a class="button" href="/products/new">Create A New Book</a>
+            </nav>
+        </div>
+
+        <div class="row">
+            <p class="section-description"><%= product.description %>
+            </p>
+
+        </div>
+
+        <div class="row">
+            <p class="section-description">
+                <img class="u-max-full-width" src="<%= product.img %> " alt="items">
+            </p>
+
+        </div>
+
+        <div class="row">
+            <% if(product.img) { %>
+            <p>You have finished this book</p>
+            <% } else { %>
+            <p>You have not finished this book</p>
+            <% } %>
+        </div>
+        <div class="row">
+            <button>BUY $<%= product.price %></button>
+
+        </div>
+
+    </div>
+
+
+
+
 </body>
+
 </html>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-<link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
     <script defer src="/public/js/script.js"></script>
     <title>Here's your product List</title>
 </head>
@@ -21,28 +21,37 @@
             <nav>
                 <a href="/products/new">Add A New product</a>
             </nav>
+            <hr>
         </div>
         <% products.forEach(product => { %>
         <div class="container content">
             <div class="row">
-                <ul style="list-style: lower-roman;">
-                    <li style="margin-bottom: 1rem;">
-                        <a href="/products/<%= product._id %>"><%= product.name %>
-                        </a>
-                        <div class="itemImg">
-                            <img src="<%= product.img %> " alt="items">
+
+                <a class="button button-primary" href="/products/<%= product._id%>/edit">EDIT</a>
+
+                <div class="section categories">
+                    <div class="container">
+                        <h3 class="section-heading"><a href="/products/<%= product._id %>"><%= product.name %></a></h3>
+                        <div class="row">
+                            <div class="one-half column category">
+                                <img class="u-max-full-width" src="<%= product.img %> " alt="items">
+                            </div>
                         </div>
+                    </div>
+                </div>
+
             </div>
-            <form method="POST" action="/products/<%= product._id %>?_method=DELETE"
-                style="display: inline; margin-right: 1rem;">
-                <input type="submit" value="DELETE">
+            <form method="POST" action="/products/<%= product._id %>?_method=DELETE">
+                <div class="row">
+                    <div>
+                        <input type="submit" value="DELETE">
+                    </div>
+                </div>
             </form>
 
-            <a style="margin: 0 1rem;" href="/products/<%= product._id%>/edit">EDIT</a>
-            </li>
-            </ul>
-
+            
         </div>
+        <hr>
         <% }); %>
     </div>
 </body>
