@@ -16,12 +16,11 @@
             <h1>Edit <%= product.title %></h1>
         </div>
         <div class="row">
-            <form action="/products/<%= product._id %>?_method=PUT" method="POST">
-                <!-- Image: <input type="text" name="imageURL"> -->
+            <form action="/products/<%= product.id%>?_method=PUT" method="POST">
                 name: <input type="text" name="title" value="<%= product.name %>" required><br>
                 description: <input type="text" name="author" value="<%= product.description %>" required><br>
-                img <input type="checkbox" name="completed" <%- product.img && 'checked' %>><br>
-                qty: <textarea name="excerpt" cols="30" rows="10"><%= product.qty %></textarea>
+                img: <input name="img" cols="30" rows="10" value="<%= product.img %> "></input>
+                price <input name="price" cols="30" rows="10" value="<%= product.price %>"><br>
                 <input class="button button-primary"type="submit" value="Edit Product">
         </div>
         </form>

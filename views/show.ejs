@@ -18,8 +18,8 @@
         </div>
         <div class="row">
             <nav>
-                <a class="button" href="/products">See All Books</a>
-                <a class="button" href="/products/new">Create A New Book</a>
+                <a class="button" href="/products">See All Products</a>
+                <a class="button" href="/products/new">Create A New Product</a>
             </nav>
         </div>
 
@@ -36,13 +36,7 @@
 
         </div>
 
-        <div class="row">
-            <% if(product.img) { %>
-            <p>You have finished this book</p>
-            <% } else { %>
-            <p>You have not finished this book</p>
-            <% } %>
-        </div>
+       
         <div class="row">
             <button>BUY $<%= product.price %></button>
 
